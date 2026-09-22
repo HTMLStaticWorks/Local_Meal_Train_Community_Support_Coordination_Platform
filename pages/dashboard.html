@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="light" dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Coordinator Dashboard — MealTrain Direct" name="description"/>
+    <title>Coordinator Dashboard | MealTrain Direct</title>
+    <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{
+        brand:{50:'#fff4f1',100:'#ffe5df',200:'#ffc9bd',300:'#f7a897',500:'#e85d4a',600:'#d94c3b',700:'#b83b2d'},
+        sage:{50:'#effaf7',100:'#d7f2ea',300:'#7cc9b0',500:'#2f9b7b',600:'#257f66',700:'#1e6553'},
+        gold:{50:'#fff9e9',100:'#fff0bd',500:'#f2b84b',600:'#d99a24'}
+        }}}};
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="dashboard-mode minimal-chrome bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<main>
+    <section class="page active dashboard-shell" id="dashboard">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-header-top">
+                <div class="dashboard-brand">
+                    <a aria-label="MealTrain Direct Home" class="dashboard-brand-btn" href="../index.html">
+                        <span class="dashboard-logo"><i class="fa-solid fa-utensils"></i></span>
+                        <span class="dashboard-brand-text">
+                            <span class="brand-name-row"><strong>MealTrain</strong><strong class="brand-accent"> Direct</strong></span>
+                            <small>COORDINATOR HUB</small>
+                        </span>
+                    </a>
+                </div>
+
+                <div class="dashboard-side-bottom">
+                    <button class="side-nav-btn" onclick="toggleDashboardTheme()" type="button" title="Toggle Theme"><i class="fa-solid fa-moon"></i><span class="btn-text">Theme</span></button>
+                    <button class="side-nav-btn" onclick="toggleDashboardRTL()" type="button" title="Toggle RTL/LTR"><i class="fa-solid fa-right-left"></i><span class="btn-text">RTL</span></button>
+                    <button class="side-nav-btn side-logout" onclick="dashboardLogout()" type="button" title="Logout"><i class="fa-solid fa-right-from-bracket"></i><span class="btn-text">Logout</span></button>
+                </div>
+            </div>
+
+            <div class="coordinator-profile desktop-only">
+                <img alt="Coordinator profile avatar" class="coordinator-avatar" src="../images/coordinator-planning.jpg"/>
+                <div>
+                    <strong>Coordinator</strong>
+                    <span>MealTrain team</span>
+                </div>
+            </div>
+
+            <div class="side-label desktop-only">WORKSPACE</div>
+            <div class="dashboard-side-nav">
+                <button class="side-nav-btn active" onclick="dashboardScroll('dashboardOverview',this)" type="button"><i class="fa-solid fa-chart-pie"></i><span>Overview</span></button>
+                <button class="side-nav-btn" onclick="dashboardScroll('dashboardSchedule',this)" type="button"><i class="fa-solid fa-calendar-days"></i><span>Meal Schedule</span></button>
+                <button class="side-nav-btn" onclick="dashboardScroll('dashboardVolunteers',this)" type="button"><i class="fa-solid fa-people-group"></i><span>Volunteers</span></button>
+                <button class="side-nav-btn" onclick="dashboardScroll('dashboardDiet',this)" type="button"><i class="fa-solid fa-notes-medical"></i><span>Dietary Notes</span></button>
+                <button class="side-nav-btn" onclick="dashboardScroll('dashboardReminders',this)" type="button"><i class="fa-solid fa-bell"></i><span>Reminders</span></button>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <div class="dashboard-topbar">
+                <div>
+                    <span class="dashboard-eyebrow">COORDINATOR DASHBOARD</span>
+                    <h1>Manage one family’s meal schedule in one place.</h1>
+                    <p>Plan meals, coordinate volunteers, record dietary needs, and keep every delivery on track.</p>
+                </div>
+                <div class="dashboard-date-card">
+                    <span>CURRENT SCHEDULE</span>
+                    <strong>Lawson Family</strong>
+                    <small>September 22 – October 3</small>
+                </div>
+            </div>
+
+            <div class="dashboard-welcome-v2" id="dashboardWelcome">
+                <div class="welcome-icon"><i class="fa-solid fa-heart"></i></div>
+                <div>
+                    <h2>Welcome, Coordinator</h2>
+                    <p>You have 3 upcoming deliveries, 1 open dinner slot, and 2 dietary notes to review today.</p>
+                </div>
+            </div>
+
+            <section class="dashboard-section" id="dashboardOverview">
+                <div class="dashboard-stat-grid">
+                    <div class="dashboard-stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <strong>24</strong>
+                        <span>Meal slots</span>
+                        <small>18 covered</small>
+                    </div>
+                    <div class="dashboard-stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-people-group"></i></div>
+                        <strong>16</strong>
+                        <span>Volunteers</span>
+                        <small>3 new this week</small>
+                    </div>
+                    <div class="dashboard-stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-calendar-day"></i></div>
+                        <strong>6</strong>
+                        <span>Open dates</span>
+                        <small>1 needs attention</small>
+                    </div>
+                    <div class="dashboard-stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-bell"></i></div>
+                        <strong>8</strong>
+                        <span>Reminders</span>
+                        <small>5 sent today</small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dashboard-section dashboard-panel" id="dashboardSchedule">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Meal Schedule</h2>
+                        <p>Upcoming deliveries for the Lawson family.</p>
+                    </div>
+                    <span class="panel-status">18 / 24 covered</span>
+                </div>
+                <div class="schedule-table">
+                    <div class="schedule-row">
+                        <span class="schedule-date">Sep 22</span>
+                        <span class="schedule-person">Maya Chen</span>
+                        <span class="schedule-meal">Chicken &amp; Rice</span>
+                        <span class="schedule-time">5:30 PM</span>
+                        <span class="schedule-status covered">Covered</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span class="schedule-date">Sep 24</span>
+                        <span class="schedule-person">Daniel Brooks</span>
+                        <span class="schedule-meal">Vegetable Pasta</span>
+                        <span class="schedule-time">6:00 PM</span>
+                        <span class="schedule-status covered">Covered</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span class="schedule-date">Sep 26</span>
+                        <span class="schedule-person">Priya Shah</span>
+                        <span class="schedule-meal">Soup + Bread</span>
+                        <span class="schedule-time">5:45 PM</span>
+                        <span class="schedule-status open">Open</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span class="schedule-date">Sep 28</span>
+                        <span class="schedule-person">Marcus Lee</span>
+                        <span class="schedule-meal">Rice Bowl</span>
+                        <span class="schedule-time">6:15 PM</span>
+                        <span class="schedule-status covered">Covered</span>
+                    </div>
+                    <div class="schedule-row">
+                        <span class="schedule-date">Sep 30</span>
+                        <span class="schedule-person">Aisha Khan</span>
+                        <span class="schedule-meal">Family Dinner</span>
+                        <span class="schedule-time">5:30 PM</span>
+                        <span class="schedule-status open">Open</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="dashboard-two-col">
+                <section class="dashboard-section dashboard-panel" id="dashboardVolunteers">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Volunteer Sign-ups by Date</h2>
+                            <p>Track coverage and follow up on open slots.</p>
+                        </div>
+                    </div>
+                    <div class="mini-row"><strong>Sep 22</strong><span>4 volunteers</span><small class="mini-status ok">Complete</small></div>
+                    <div class="mini-row"><strong>Sep 24</strong><span>4 volunteers</span><small class="mini-status ok">Complete</small></div>
+                    <div class="mini-row"><strong>Sep 26</strong><span>2 volunteers</span><small class="mini-status warn">2 slots open</small></div>
+                    <div class="mini-row"><strong>Sep 28</strong><span>4 volunteers</span><small class="mini-status ok">Complete</small></div>
+                    <div class="mini-row"><strong>Sep 30</strong><span>2 volunteers</span><small class="mini-status warn">2 slots open</small></div>
+                </section>
+
+                <section class="dashboard-section dashboard-panel" id="dashboardDiet">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Dietary Restrictions</h2>
+                            <p>Keep special meal notes visible before each delivery.</p>
+                        </div>
+                    </div>
+                    <div class="diet-note">
+                        <span class="diet-icon"><i class="fa-solid fa-utensils"></i></span>
+                        <div><strong>Nut-free</strong><span>All meals</span></div>
+                        <small class="warn">High priority</small>
+                    </div>
+                    <div class="diet-note">
+                        <span class="diet-icon"><i class="fa-solid fa-utensils"></i></span>
+                        <div><strong>Vegetarian</strong><span>Sep 24, Sep 28</span></div>
+                        <small class="ok">Confirmed</small>
+                    </div>
+                    <div class="diet-note">
+                        <span class="diet-icon"><i class="fa-solid fa-utensils"></i></span>
+                        <div><strong>No shellfish</strong><span>All meals</span></div>
+                        <small class="ok">Confirmed</small>
+                    </div>
+                </section>
+            </div>
+
+            <section class="dashboard-section dashboard-panel" id="dashboardReminders">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Reminder Center</h2>
+                        <p>Send timely reminders to volunteers before meal deliveries.</p>
+                    </div>
+                    <button class="reminder-main-btn" onclick="sendReminder('all upcoming volunteers')" type="button"><i class="fa-solid fa-paper-plane"></i> Send upcoming reminders</button>
+                </div>
+                <div class="reminder-row">
+                    <span class="reminder-avatar">M</span>
+                    <div><strong>Maya Chen</strong><span>Today · 5:30 PM · Chicken &amp; Rice</span></div>
+                    <button onclick="sendReminder('Maya Chen')" type="button">Send reminder</button>
+                </div>
+                <div class="reminder-row">
+                    <span class="reminder-avatar">D</span>
+                    <div><strong>Daniel Brooks</strong><span>Sep 24 · 6:00 PM · Vegetable Pasta</span></div>
+                    <button onclick="sendReminder('Daniel Brooks')" type="button">Send reminder</button>
+                </div>
+                <div class="reminder-row">
+                    <span class="reminder-avatar">P</span>
+                    <div><strong>Priya Shah</strong><span>Sep 26 · 5:45 PM · Soup + Bread</span></div>
+                    <button onclick="sendReminder('Priya Shah')" type="button">Send reminder</button>
+                </div>
+            </section>
+
+            <section class="dashboard-section dashboard-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Recent Activity</h2>
+                        <p>Latest coordinator and volunteer updates.</p>
+                    </div>
+                </div>
+                <div class="activity-row"><span class="activity-dot"></span><span>Maya Chen confirmed the Sep 22 dinner</span><small>12 minutes ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span>Dietary note updated: nut-free</span><small>42 minutes ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span>Reminder sent to Sep 26 volunteers</span><small>1 hour ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span>Daniel Brooks joined the meal train</span><small>2 hours ago</small></div>
+            </section>
+        </div>
+    </section>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

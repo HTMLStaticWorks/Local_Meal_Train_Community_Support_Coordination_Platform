@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="light" dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Start a Meal Train — Support Calendar Creation" name="description"/>
+    <title>Start a Meal Train | MealTrain Direct</title>
+    <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{
+        brand:{50:'#fff4f1',100:'#ffe5df',200:'#ffc9bd',300:'#f7a897',500:'#e85d4a',600:'#d94c3b',700:'#b83b2d'},
+        sage:{50:'#effaf7',100:'#d7f2ea',300:'#7cc9b0',500:'#2f9b7b',600:'#257f66',700:'#1e6553'},
+        gold:{50:'#fff9e9',100:'#fff0bd',500:'#f2b84b',600:'#d99a24'}
+        }}}};
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="h-16 sm:h-20 flex items-center justify-between gap-4">
+            <!-- Brand / Logo -->
+            <a aria-label="MealTrain Direct Home" class="shrink-0 flex items-center gap-2.5 text-slate-900 dark:text-white group text-decoration-none" href="../index.html">
+                <span class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-200">
+                    <i class="fa-solid fa-utensils text-base"></i>
+                </span>
+                <span class="flex flex-col justify-center leading-none">
+                    <span class="font-extrabold text-[15px] sm:text-[16px] tracking-tight text-slate-900 dark:text-white">MealTrain<span class="text-brand-500">Direct</span></span>
+                    <span class="text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400 mt-0.5">Community Care Hub</span>
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center justify-center gap-1 xl:gap-2 mx-auto">
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70 transition-all duration-150 flex items-center" href="../index.html">Home 1</a>
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70 transition-all duration-150 flex items-center" href="home2.html">Home 2</a>
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70 transition-all duration-150 flex items-center" href="how-it-works.html">About</a>
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-bold text-brand-600 dark:text-brand-400 bg-brand-50/80 dark:bg-brand-950/50 transition-all duration-150 flex items-center" href="start-meal-train.html">MEALS</a>
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70 transition-all duration-150 flex items-center" href="browse-support.html">Support</a>
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70 transition-all duration-150 flex items-center" href="contact.html">Contact</a>
+                <a class="nav-btn px-3 py-2 rounded-xl text-[13px] xl:text-[14px] font-semibold text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800/70 transition-all duration-150 flex items-center" href="dashboard.html">Dashboard</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden lg:flex items-center gap-2 pl-3 border-l border-slate-200 dark:border-slate-800 shrink-0">
+                <a class="nav-signup" href="register.html">Sign Up</a>
+                <button class="nav-control" id="themeToggle" onclick="toggleTheme()" title="Toggle theme" type="button"><i class="fa-solid fa-moon" id="navThemeIcon"></i></button>
+                <button class="nav-control nav-rtl" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" type="button">RTL</button>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="lg:hidden flex items-center gap-2">
+                <button aria-label="Open menu" class="w-10 h-10 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars text-lg" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1 shadow-lg" id="mobileMenu">
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="../index.html">Home 1</a>
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="home2.html">Home 2</a>
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="how-it-works.html">About</a>
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-bold text-brand-600 bg-brand-50/80 dark:bg-brand-950/40" href="start-meal-train.html">MEALS</a>
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="browse-support.html">Support</a>
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="contact.html">Contact</a>
+        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="dashboard.html">Dashboard</a>
+        <div class="pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
+            <a class="nav-signup flex-1 text-center" href="register.html">Sign Up</a>
+            <button class="nav-control" id="mobileTheme" onclick="toggleTheme()" type="button"><i class="fa-solid fa-moon"></i></button>
+            <button class="nav-control" id="mobileRTL" onclick="toggleRTL()" type="button">RTL</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="page active" id="start">
+        <section class="relative py-20 bg-cover bg-center text-white text-center" style="background-image:url('../images/start-hero.jpg')">
+            <div class="absolute inset-0 bg-slate-950/65"></div>
+            <div class="relative max-w-7xl mx-auto px-5 lg:px-8 flex flex-col items-center">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white dark:text-white">Start a Meal Train</h1>
+                <p class="mt-4 max-w-2xl text-slate-200">Set up a practical support calendar for a family in need.</p>
+            </div>
+        </section>
+
+        <section class="py-14 bg-white dark:bg-slate-900">
+            <div class="max-w-6xl mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+                <div>
+                    <img alt="Home-cooked meal preparation" class="w-full h-[500px] object-cover rounded-3xl shadow-lg" src="../images/meal-prep.jpg"/>
+                    <div class="mt-5 p-5 rounded-2xl bg-brand-50 dark:bg-slate-800">
+                        <h2 class="font-extrabold">Coordinator checklist</h2>
+                        <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                            <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Recipient name and support reason</li>
+                            <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Delivery preferences and restrictions</li>
+                            <li><i class="fa-solid fa-check text-sage-500 mr-2"></i>Meal dates and volunteer expectations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <form class="p-7 sm:p-9 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm" id="startForm" onsubmit="createTrain(event)">
+                    <h2 class="text-2xl font-extrabold">Create your schedule</h2>
+                    <p class="mt-2 text-sm text-slate-500">Demo form — no real account is created.</p>
+                    <div class="mt-6 space-y-4">
+                        <label class="block text-sm font-bold">Recipient Name
+                            <input class="field" name="recipient" placeholder="e.g. The Lawson Family" required=""/>
+                        </label>
+                        <label class="block text-sm font-bold">Reason
+                            <select class="field" name="reason">
+                                <option>New Baby / Adoption</option>
+                                <option>Medical Recovery / Surgery</option>
+                                <option>Bereavement / Support</option>
+                                <option>General Community Need</option>
+                            </select>
+                        </label>
+                        <label class="block text-sm font-bold">First Meal Date
+                            <input class="field" name="date" required="" type="date"/>
+                        </label>
+                        <label class="block text-sm font-bold">Dietary Restrictions
+                            <input class="field" name="diet" placeholder="e.g. Gluten-free, nut-free"/>
+                        </label>
+                        <label class="block text-sm font-bold">Drop-off Instructions
+                            <textarea class="field" name="notes" placeholder="Porch cooler, preferred time, contact-free notes..." rows="4"></textarea>
+                        </label>
+                        <button class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-extrabold" type="submit">Create Meal Train</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="py-14 bg-slate-50 dark:bg-slate-950">
+            <div class="max-w-6xl mx-auto px-5 lg:px-8 grid md:grid-cols-3 gap-6">
+                <div class="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border dark:border-slate-800 text-center">
+                    <img alt="Comfort food" class="h-48 w-full object-cover" src="../images/comfort-meal.jpg"/>
+                    <div class="p-5">
+                        <h3 class="font-extrabold">Choose meals</h3>
+                        <p class="mt-2 text-sm text-slate-500">Make food preferences clear for volunteers.</p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border dark:border-slate-800 text-center">
+                    <img alt="Cooking a family meal" class="h-48 w-full object-cover" src="../images/cooking-family.jpg"/>
+                    <div class="p-5">
+                        <h3 class="font-extrabold">Invite helpers</h3>
+                        <p class="mt-2 text-sm text-slate-500">Share the schedule with trusted supporters.</p>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border dark:border-slate-800 text-center">
+                    <img alt="Prepared meal ready to serve" class="h-48 w-full object-cover" src="../images/hero-home1.jpg"/>
+                    <div class="p-5">
+                        <h3 class="font-extrabold">Track coverage</h3>
+                        <p class="mt-2 text-sm text-slate-500">Use the dashboard to monitor open dates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-14 bg-white dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-8 items-center">
+                <img alt="Fresh home-cooked meal prepared for a family" class="w-full h-64 object-cover rounded-3xl shadow-lg" src="../images/fresh-prepared.jpg"/>
+                <div>
+                    <span class="text-sage-500 font-extrabold text-sm uppercase tracking-widest">Thoughtful setup</span>
+                    <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold">Give volunteers the details they need before the first delivery.</h2>
+                    <p class="mt-3 text-slate-600 dark:text-slate-400">Good meal schedules combine practical dates with dietary information, preferred drop-off windows and simple instructions for supporters.</p>
+                    <div class="mt-5 grid sm:grid-cols-3 gap-3">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center flex flex-col items-center justify-center"><i class="fa-solid fa-calendar text-brand-500 text-lg"></i><span class="block mt-2 text-xs font-bold">Dates</span></div>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center flex flex-col items-center justify-center"><i class="fa-solid fa-leaf text-sage-500 text-lg"></i><span class="block mt-2 text-xs font-bold">Dietary notes</span></div>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-center flex flex-col items-center justify-center"><i class="fa-solid fa-location-dot text-gold-600 text-lg"></i><span class="block mt-2 text-xs font-bold">Delivery</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-slate-200 dark:border-slate-800 bg-slate-100 text-slate-700 dark:bg-slate-900 dark:text-slate-300">
+    <!-- Main Footer Links Grid -->
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+            <!-- Brand Info Column -->
+            <div class="lg:col-span-2 space-y-4">
+                <a class="inline-flex items-center gap-2.5 text-slate-900 dark:text-white group text-decoration-none" href="../index.html">
+                    <span class="w-10 h-10 rounded-xl bg-brand-500 text-white flex items-center justify-center shadow-md shadow-brand-500/30 group-hover:scale-105 transition-transform duration-200">
+                        <i class="fa-solid fa-utensils text-base"></i>
+                    </span>
+                    <span class="flex flex-col leading-none">
+                        <span class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white">MealTrain<span class="text-brand-500">Direct</span></span>
+                        <span class="text-[9px] font-bold uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400 mt-0.5">Community Care Hub</span>
+                    </span>
+                </a>
+                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-sm">
+                    Connecting neighbors, families, and volunteers to organize home-cooked meal schedules for life's important moments—from new births and recoveries to times of crisis.
+                </p>
+                <div class="pt-2 flex items-center gap-3">
+                    <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-xl bg-slate-200 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:hover:bg-brand-500 dark:text-slate-300 dark:hover:text-white flex items-center justify-center transition-all duration-200">
+                        <i class="fa-brands fa-facebook-f text-sm"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter / X" class="w-9 h-9 rounded-xl bg-slate-200 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:hover:bg-brand-500 dark:text-slate-300 dark:hover:text-white flex items-center justify-center transition-all duration-200">
+                        <i class="fa-brands fa-x-twitter text-sm"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-xl bg-slate-200 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:hover:bg-brand-500 dark:text-slate-300 dark:hover:text-white flex items-center justify-center transition-all duration-200">
+                        <i class="fa-brands fa-instagram text-sm"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-xl bg-slate-200 hover:bg-brand-500 text-slate-700 hover:text-white dark:bg-slate-800 dark:hover:bg-brand-500 dark:text-slate-300 dark:hover:text-white flex items-center justify-center transition-all duration-200">
+                        <i class="fa-brands fa-linkedin-in text-sm"></i>
+                    </a>
+                </div>
+                <div class="pt-2">
+                    <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-300 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span> 50,000+ Meals Coordinated
+                    </span>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="space-y-3">
+                <h4 class="text-slate-900 dark:text-white font-extrabold text-sm uppercase tracking-wider">Navigation</h4>
+                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="../index.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> Home 1</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="home2.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> Home 2</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="how-it-works.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> About Us</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="start-meal-train.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> MEALS</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="browse-support.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> Support Hub</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="contact.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> Contact Us</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="dashboard.html"><i class="fa-solid fa-angle-right text-xs text-brand-500"></i> Dashboard</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div class="space-y-3">
+                <h4 class="text-slate-900 dark:text-white font-extrabold text-sm uppercase tracking-wider">Resources</h4>
+                <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="how-it-works.html"><i class="fa-solid fa-book-open text-xs text-sage-600 dark:text-sage-400"></i> Organizer Guide</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="browse-support.html"><i class="fa-solid fa-utensils text-xs text-sage-600 dark:text-sage-400"></i> Dietary Prep Tips</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="browse-support.html"><i class="fa-solid fa-hands-holding-child text-xs text-sage-600 dark:text-sage-400"></i> Newborn Care Trains</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="browse-support.html"><i class="fa-solid fa-user-nurse text-xs text-sage-600 dark:text-sage-400"></i> Recovery Care</a></li>
+                    <li><a class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors flex items-center gap-1.5" href="contact.html"><i class="fa-solid fa-circle-question text-xs text-sage-600 dark:text-sage-400"></i> Help &amp; FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Start Care Action -->
+            <div class="space-y-4">
+                <h4 class="text-slate-900 dark:text-white font-extrabold text-sm uppercase tracking-wider">Start Care</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-400">Create a personalized meal calendar for a neighbor or family member in less than 2 minutes.</p>
+                <a class="w-full py-3 px-4 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-sm text-center block shadow-lg shadow-brand-500/20 transition-all duration-200" href="start-meal-train.html">
+                    Organize a Meal Train
+                </a>
+                <div class="pt-2 text-xs text-slate-600 dark:text-slate-400 space-y-1.5 border-t border-slate-200 dark:border-slate-800">
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-envelope text-brand-500"></i> support@mealtraindirect.org</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-phone text-sage-600 dark:text-sage-400"></i> 1-800-MEAL-CARE (24/7)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright & Legal -->
+    <div class="border-t border-slate-200 dark:border-slate-800 bg-slate-200/60 dark:bg-slate-950 py-6 text-xs text-slate-600 dark:text-slate-400">
+        <div class="max-w-7xl mx-auto px-5 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                © 2026 <strong>MealTrain Direct</strong>. All rights reserved. Community Support Platform.
+            </div>
+            <div class="flex items-center gap-6">
+                <a class="hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">Privacy Policy</a>
+                <a class="hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">Terms of Service</a>
+                <a class="hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">Accessibility</a>
+                <a class="hover:text-slate-900 dark:hover:text-slate-200 transition-colors" href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
