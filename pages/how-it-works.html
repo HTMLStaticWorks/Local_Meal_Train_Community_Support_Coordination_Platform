@@ -50,9 +50,9 @@
 
             <!-- Actions -->
             <div class="hidden lg:flex items-center gap-2 pl-3 border-l border-slate-200 dark:border-slate-800 shrink-0">
-                <a class="nav-signup" href="register.html">Sign Up</a>
                 <button class="nav-control" id="themeToggle" onclick="toggleTheme()" title="Toggle theme" type="button"><i class="fa-solid fa-moon" id="navThemeIcon"></i></button>
                 <button class="nav-control nav-rtl" id="rtlToggle" onclick="toggleRTL()" title="Toggle RTL/LTR" type="button">RTL</button>
+                <a class="nav-signup" href="register.html">Sign Up</a>
             </div>
 
             <!-- Mobile menu button -->
@@ -72,21 +72,22 @@
         <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="contact.html">Contact</a>
         <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="dashboard.html">Dashboard</a>
         <div class="pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
-            <a class="nav-signup flex-1 text-center" href="register.html">Sign Up</a>
             <button class="nav-control" id="mobileTheme" onclick="toggleTheme()" type="button"><i class="fa-solid fa-moon"></i></button>
             <button class="nav-control" id="mobileRTL" onclick="toggleRTL()" type="button">RTL</button>
+            <a class="nav-signup flex-1 text-center" href="register.html">Sign Up</a>
         </div>
     </div>
 </header>
 
 <main>
     <section class="page active" id="how">
-        <section class="py-16 bg-slate-900 text-white text-center">
-            <div class="max-w-7xl mx-auto px-5 lg:px-8">
+        <section class="relative py-20 bg-cover bg-center text-white text-center" style="background-image:url('../images/about-hero.jpg')">
+            <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px]"></div>
+            <div class="relative max-w-7xl mx-auto px-5 lg:px-8">
                 <div class="max-w-3xl mx-auto flex flex-col items-center">
-                    <span class="text-brand-300 font-bold uppercase tracking-widest text-sm">How It Works</span>
-                    <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold">From a simple request to a covered meal calendar.</h1>
-                    <p class="mt-4 text-slate-300 text-lg">A clear workflow for coordinators and volunteers.</p>
+                    <span class="text-brand-400 font-extrabold uppercase tracking-widest text-sm bg-brand-950/60 px-3.5 py-1 rounded-full border border-brand-500/30">How It Works</span>
+                    <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold text-white">From a simple request to a covered meal calendar.</h1>
+                    <p class="mt-4 text-slate-200 text-lg">A clear workflow for coordinators and volunteers.</p>
                 </div>
             </div>
         </section>

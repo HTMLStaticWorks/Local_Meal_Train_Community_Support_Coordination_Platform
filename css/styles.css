@@ -574,26 +574,30 @@ body.dashboard-mode { overflow: hidden; }
     }
 
     .activity-row {
-        grid-template-columns: 10px 1fr !important;
+        grid-template-columns: 12px 1fr !important;
         grid-template-areas:
             "dot text"
             "dot time" !important;
         gap: 4px 10px !important;
         padding: 10px 0 !important;
+        align-items: start !important;
     }
 
     .activity-dot {
-        grid-area: dot;
+        grid-area: dot !important;
         margin-top: 5px;
+        align-self: start;
+        flex-shrink: 0;
     }
 
-    .activity-row span {
-        grid-area: text;
+    .activity-row span.activity-text,
+    .activity-row span:not(.activity-dot) {
+        grid-area: text !important;
         font-size: 12px !important;
     }
 
     .activity-row small {
-        grid-area: time;
+        grid-area: time !important;
         font-size: 10px !important;
     }
 }

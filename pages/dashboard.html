@@ -35,12 +35,6 @@
                         </span>
                     </a>
                 </div>
-
-                <div class="dashboard-side-bottom">
-                    <button class="side-nav-btn" onclick="toggleDashboardTheme()" type="button" title="Toggle Theme"><i class="fa-solid fa-moon"></i><span class="btn-text">Theme</span></button>
-                    <button class="side-nav-btn" onclick="toggleDashboardRTL()" type="button" title="Toggle RTL/LTR"><i class="fa-solid fa-right-left"></i><span class="btn-text">RTL</span></button>
-                    <button class="side-nav-btn side-logout" onclick="dashboardLogout()" type="button" title="Logout"><i class="fa-solid fa-right-from-bracket"></i><span class="btn-text">Logout</span></button>
-                </div>
             </div>
 
             <div class="coordinator-profile desktop-only">
@@ -58,6 +52,12 @@
                 <button class="side-nav-btn" onclick="dashboardScroll('dashboardVolunteers',this)" type="button"><i class="fa-solid fa-people-group"></i><span>Volunteers</span></button>
                 <button class="side-nav-btn" onclick="dashboardScroll('dashboardDiet',this)" type="button"><i class="fa-solid fa-notes-medical"></i><span>Dietary Notes</span></button>
                 <button class="side-nav-btn" onclick="dashboardScroll('dashboardReminders',this)" type="button"><i class="fa-solid fa-bell"></i><span>Reminders</span></button>
+            </div>
+
+            <div class="dashboard-side-bottom">
+                <button class="side-nav-btn" onclick="toggleDashboardTheme()" type="button" title="Toggle Theme"><i class="fa-solid fa-moon"></i><span class="btn-text">Theme</span></button>
+                <button class="side-nav-btn" onclick="toggleDashboardRTL()" type="button" title="Toggle RTL/LTR"><i class="fa-solid fa-right-left"></i><span class="btn-text">RTL</span></button>
+                <button class="side-nav-btn side-logout" onclick="dashboardLogout()" type="button" title="Logout"><i class="fa-solid fa-right-from-bracket"></i><span class="btn-text">Logout</span></button>
             </div>
         </aside>
 
@@ -231,10 +231,10 @@
                         <p>Latest coordinator and volunteer updates.</p>
                     </div>
                 </div>
-                <div class="activity-row"><span class="activity-dot"></span><span>Maya Chen confirmed the Sep 22 dinner</span><small>12 minutes ago</small></div>
-                <div class="activity-row"><span class="activity-dot"></span><span>Dietary note updated: nut-free</span><small>42 minutes ago</small></div>
-                <div class="activity-row"><span class="activity-dot"></span><span>Reminder sent to Sep 26 volunteers</span><small>1 hour ago</small></div>
-                <div class="activity-row"><span class="activity-dot"></span><span>Daniel Brooks joined the meal train</span><small>2 hours ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span class="activity-text">Maya Chen confirmed the Sep 22 dinner</span><small>12 minutes ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span class="activity-text">Dietary note updated: nut-free</span><small>42 minutes ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span class="activity-text">Reminder sent to Sep 26 volunteers</span><small>1 hour ago</small></div>
+                <div class="activity-row"><span class="activity-dot"></span><span class="activity-text">Daniel Brooks joined the meal train</span><small>2 hours ago</small></div>
             </section>
         </div>
     </section>
