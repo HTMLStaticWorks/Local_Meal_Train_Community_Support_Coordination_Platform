@@ -23,7 +23,7 @@
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
 
 <!-- NAVBAR -->
-<header class="sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
+<header class="fixed top-0 left-0 right-0 w-full z-50 border-b border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="h-16 sm:h-20 flex items-center justify-between gap-4">
             <!-- Brand / Logo -->
@@ -63,14 +63,14 @@
             </div>
         </div>
     </div>
-    <div class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1 shadow-lg" id="mobileMenu">
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="../index.html">Home 1</a>
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="home2.html">Home 2</a>
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="how-it-works.html">About</a>
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="start-meal-train.html">MEALS</a>
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="browse-support.html">Support</a>
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-bold text-brand-600 bg-brand-50/80 dark:bg-brand-950/40" href="contact.html">Contact</a>
-        <a class="nav-btn block py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="dashboard.html">Dashboard</a>
+    <div class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl px-4 py-3 space-y-1 shadow-lg text-center" id="mobileMenu">
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="../index.html">Home 1</a>
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="home2.html">Home 2</a>
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="how-it-works.html">About</a>
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="start-meal-train.html">MEALS</a>
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="browse-support.html">Support</a>
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-bold text-brand-600 bg-brand-50/80 dark:bg-brand-950/40" href="contact.html">Contact</a>
+        <a class="nav-btn block text-center py-2.5 px-3 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800" href="dashboard.html">Dashboard</a>
         <div class="pt-3 mt-2 border-t border-slate-200 dark:border-slate-800 flex items-center gap-2">
             <button class="nav-control" id="mobileTheme" onclick="toggleTheme()" type="button"><i class="fa-solid fa-moon"></i></button>
             <button class="nav-control" id="mobileRTL" onclick="toggleRTL()" type="button">RTL</button>
@@ -81,13 +81,25 @@
 
 <main>
     <section class="page active" id="contact">
-        <div class="contact-page-wrap">
-            <div class="contact-hero text-center flex flex-col items-center">
-                <span class="contact-eyebrow">Community Care • We’re Here to Help</span>
-                <h1>Contact MealTrain Direct</h1>
-                <p>Have a question about starting a meal train, coordinating volunteers, dietary notes, or reminders? Send us a message and our community team will help.</p>
+        <section class="hero hero-bg relative flex items-center justify-center text-center" style="background-image:url('../images/community-team.jpg')">
+            <div class="absolute inset-0 bg-slate-950/70 backdrop-blur-[1px]"></div>
+            <div class="relative z-10 max-w-7xl mx-auto px-5 lg:px-8 w-full py-12 lg:py-16 flex flex-col items-center">
+                <div class="max-w-3xl mx-auto text-white flex flex-col items-center">
+                    <span class="hero-eyebrow-pill inline-flex items-center gap-2 rounded-full bg-slate-900/90 border border-white/40 px-4 py-2 text-xs sm:text-sm font-black uppercase tracking-wider text-white shadow-xl backdrop-blur-md">
+                        <i class="fa-solid fa-headset text-brand-400"></i> Community Care • We’re Here to Help
+                    </span>
+                    <h1 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight drop-shadow-md">Contact MealTrain Direct</h1>
+                    <p class="mt-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl mx-auto">Have a question about starting a meal train, coordinating volunteers, dietary notes, or reminders? Send us a message and our community team will help.</p>
+                    <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-bold text-white">
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/30 text-white shadow-md backdrop-blur-md"><i class="fa-solid fa-envelope text-brand-400"></i> hello@mealtraindirect.example</span>
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/30 text-white shadow-md backdrop-blur-md"><i class="fa-solid fa-phone text-sage-400"></i> +1 (555) 014-2026</span>
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-white/30 text-white shadow-md backdrop-blur-md"><i class="fa-solid fa-location-dot text-emerald-400"></i> Austin, TX</span>
+                    </div>
+                </div>
             </div>
+        </section>
 
+        <div class="contact-page-wrap">
             <div class="contact-grid-v2">
                 <div class="contact-info-card">
                     <h2 class="text-center">Get in touch</h2>
@@ -231,6 +243,50 @@
                 </div>
             </div>
         </div>
+
+        <!-- UNIVERSAL FINAL CTA SECTION -->
+        <section class="py-16 lg:py-20 bg-gradient-to-br from-brand-600 via-brand-500 to-amber-600 text-white relative overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-black/20 pointer-events-none"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-5 lg:px-8 text-center">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-extrabold uppercase tracking-widest shadow-sm">
+                    <i class="fa-solid fa-heart-pulse"></i> Start Sharing Compassion Today
+                </span>
+                <h2 class="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight drop-shadow-md">
+                    Ready to Support a Family in Your Community?
+                </h2>
+                <p class="mt-4 text-base sm:text-lg text-brand-50 max-w-2xl mx-auto leading-relaxed">
+                    Whether welcoming a newborn, recovering from surgery, or walking through a time of loss—organize a free meal train in less than 2 minutes or claim an open delivery slot.
+                </p>
+
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="start-meal-train.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white text-brand-600 hover:bg-slate-50 font-extrabold text-base shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-200 inline-flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calendar-plus text-brand-500"></i> Organize a Meal Train
+                    </a>
+                    <a href="browse-support.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-700/60 hover:bg-brand-700/90 text-white border border-white/30 font-extrabold text-base backdrop-blur-md shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200 inline-flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-hand-holding-heart text-amber-300"></i> Find Community Support
+                    </a>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-white/20 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-circle-check text-amber-300 text-lg mb-1"></i>
+                        <span class="text-xs sm:text-sm font-bold text-white">100% Free Forever</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-bolt text-amber-300 text-lg mb-1"></i>
+                        <span class="text-xs sm:text-sm font-bold text-white">2-Minute Quick Setup</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-bell text-amber-300 text-lg mb-1"></i>
+                        <span class="text-xs sm:text-sm font-bold text-white">Automated SMS Reminders</span>
+                    </div>
+                    <div class="flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-shield-halved text-amber-300 text-lg mb-1"></i>
+                        <span class="text-xs sm:text-sm font-bold text-white">Private &amp; Secure Data</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
 </main>
 

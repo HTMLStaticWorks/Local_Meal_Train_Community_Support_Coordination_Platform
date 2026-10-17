@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html class="light" dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Volunteer Coordination — MealTrain Direct" name="description"/>
+    <title>Volunteers | Coordinator Dashboard | MealTrain Direct</title>
+    <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{
+        brand:{50:'#fff4f1',100:'#ffe5df',200:'#ffc9bd',300:'#f7a897',500:'#e85d4a',600:'#d94c3b',700:'#b83b2d'},
+        sage:{50:'#effaf7',100:'#d7f2ea',300:'#7cc9b0',500:'#2f9b7b',600:'#257f66',700:'#1e6553'},
+        gold:{50:'#fff9e9',100:'#fff0bd',500:'#f2b84b',600:'#d99a24'}
+        }}}};
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="dashboard-mode minimal-chrome bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<main>
+    <section class="page active dashboard-shell" id="dashboard">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-header-top">
+                <div class="dashboard-brand">
+                    <a aria-label="MealTrain Direct Home" class="dashboard-brand-btn" href="../index.html">
+                        <span class="dashboard-logo"><i class="fa-solid fa-utensils"></i></span>
+                        <span class="dashboard-brand-text">
+                            <span class="brand-name-row"><strong>MealTrain</strong><strong class="brand-accent"> Direct</strong></span>
+                            <small>COORDINATOR HUB</small>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="coordinator-profile desktop-only">
+                <img alt="Coordinator profile avatar" class="coordinator-avatar" src="../images/coordinator-planning.jpg"/>
+                <div>
+                    <strong>Coordinator</strong>
+                    <span>MealTrain team</span>
+                </div>
+            </div>
+
+            <div class="side-label desktop-only">WORKSPACE</div>
+            <div class="dashboard-side-nav">
+                <a class="side-nav-btn" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i><span>Overview</span></a>
+                <a class="side-nav-btn" href="dashboard-schedule.html"><i class="fa-solid fa-calendar-days"></i><span>Meal Schedule</span></a>
+                <a class="side-nav-btn active" href="dashboard-volunteers.html"><i class="fa-solid fa-people-group"></i><span>Volunteers</span></a>
+                <a class="side-nav-btn" href="dashboard-diet.html"><i class="fa-solid fa-notes-medical"></i><span>Dietary Notes</span></a>
+                <a class="side-nav-btn" href="dashboard-reminders.html"><i class="fa-solid fa-bell"></i><span>Reminders</span></a>
+            </div>
+
+            <div class="dashboard-side-bottom">
+                <button class="side-nav-btn" onclick="toggleDashboardTheme()" type="button" title="Toggle Theme"><i class="fa-solid fa-moon"></i><span class="btn-text">Theme</span></button>
+                <button class="side-nav-btn" onclick="toggleDashboardRTL()" type="button" title="Toggle RTL/LTR"><i class="fa-solid fa-right-left"></i><span class="btn-text">RTL</span></button>
+                <button class="side-nav-btn side-logout" onclick="dashboardLogout()" type="button" title="Logout"><i class="fa-solid fa-right-from-bracket"></i><span class="btn-text">Logout</span></button>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <div class="dashboard-topbar">
+                <div>
+                    <span class="dashboard-eyebrow">VOLUNTEER ROSTER</span>
+                    <h1>Community Helpers &amp; Volunteers</h1>
+                    <p>Manage 18 registered helpers, check delivery assignments, and coordinate communications.</p>
+                </div>
+                <div class="dashboard-date-card">
+                    <span>VOLUNTEER POOL</span>
+                    <strong>18 Helpers</strong>
+                    <small class="text-emerald-500 font-bold">12 Active &bull; 6 Standby</small>
+                </div>
+            </div>
+
+            <!-- QUICK STATS -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">Total Helpers</span>
+                    <strong class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1 block">18</strong>
+                    <span class="text-xs text-sage-600 dark:text-sage-400 font-bold mt-1 inline-flex items-center gap-1"><i class="fa-solid fa-arrow-trend-up"></i> +4 this week</span>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">Meals Delivered</span>
+                    <strong class="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1 block">12</strong>
+                    <span class="text-xs text-slate-500 font-medium mt-1 block">100% on-time</span>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">Upcoming Deliveries</span>
+                    <strong class="text-2xl font-extrabold text-brand-600 dark:text-brand-400 mt-1 block">6</strong>
+                    <span class="text-xs text-slate-500 font-medium mt-1 block">Next: Sep 27 (Carlos M.)</span>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <span class="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider block">Standby Reserves</span>
+                    <strong class="text-2xl font-extrabold text-gold-500 mt-1 block">6</strong>
+                    <span class="text-xs text-slate-500 font-medium mt-1 block">Ready if slots reopen</span>
+                </div>
+            </div>
+
+            <!-- CONTROLS & FILTER BAR -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="flex items-center gap-2 flex-wrap">
+                    <div class="relative">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                        <input id="volunteerSearch" onkeyup="searchVolunteers()" placeholder="Search helper or dish..." class="pl-8 pr-4 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500" type="text" />
+                    </div>
+                    <button class="px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs" onclick="filterVolunteers('all', this)" type="button">All (9 listed)</button>
+                    <button class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 font-bold text-xs" onclick="filterVolunteers('active', this)" type="button">Assigned (7)</button>
+                    <button class="px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 font-bold text-xs" onclick="filterVolunteers('standby', this)" type="button">Standby (2)</button>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="px-4 py-2 rounded-xl bg-sage-500 hover:bg-sage-600 text-white font-extrabold text-xs inline-flex items-center gap-2 shadow-sm transition-all" onclick="alert('Invitation link copied: share with your neighborhood, church, or workplace circle!')" type="button">
+                        <i class="fa-solid fa-user-plus"></i> Invite Volunteer
+                    </button>
+                    <button class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-900 text-white font-extrabold text-xs inline-flex items-center gap-2 shadow-sm transition-all dark:bg-slate-700 dark:hover:bg-slate-600" onclick="alert('Broadcast modal opened: write a message to all 18 helpers.')" type="button">
+                        <i class="fa-solid fa-envelope"></i> Message All
+                    </button>
+                </div>
+            </div>
+
+            <!-- VOLUNTEERS ROSTER TABLE -->
+            <section class="dashboard-section dashboard-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Volunteer Roster &amp; Delivery Commitments</h2>
+                        <p>Direct contact records, planned dishes, and drop-off verification</p>
+                    </div>
+                    <span class="panel-status">Verified Community Members</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse" id="volunteersTable">
+                        <thead>
+                            <tr class="border-b border-slate-200 dark:border-slate-700 text-xs font-bold uppercase text-slate-400">
+                                <th class="py-3 px-4">Volunteer</th>
+                                <th class="py-3 px-4">Contact</th>
+                                <th class="py-3 px-4">Assigned Slot &amp; Planned Meal</th>
+                                <th class="py-3 px-4">Status</th>
+                                <th class="py-3 px-4 text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <!-- Volunteer 1 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300 font-extrabold flex items-center justify-center text-xs">MC</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Maya Chen</strong>
+                                            <span class="text-xs text-slate-400">Neighbor &bull; 4th Ave</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 234-5678</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> maya.c@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 22 &bull; 5:30 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Lemon Herb Roasted Chicken &amp; Jasmine Rice</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                                        <i class="fa-solid fa-check"></i> Delivered
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Sent thank you note to Maya Chen!')" type="button">Send Thanks</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 2 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 font-extrabold flex items-center justify-center text-xs">JM</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Jonathan Miller</strong>
+                                            <span class="text-xs text-slate-400">Church Member &bull; St. Jude</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 345-6789</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> j.miller@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 23 &bull; 6:00 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Slow-Cooker Beef Stew with Fresh Rolls</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                                        <i class="fa-solid fa-check"></i> Delivered
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Sent thank you note to Jonathan Miller!')" type="button">Send Thanks</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 3 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-sage-100 text-sage-700 dark:bg-sage-900/50 dark:text-sage-300 font-extrabold flex items-center justify-center text-xs">DB</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Daniel Brooks</strong>
+                                            <span class="text-xs text-slate-400">Colleague &bull; Tech Co.</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 456-7890</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> dbrooks@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 24 &bull; 6:00 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Vegetable Primavera Pasta (Nut-Free)</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                                        <i class="fa-solid fa-clock"></i> Confirmed
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Notification sent to Daniel!')" type="button">Send Reminder</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 4 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300 font-extrabold flex items-center justify-center text-xs">RA</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Rachel Adams</strong>
+                                            <span class="text-xs text-slate-400">School PTA Friend</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 567-8901</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> rachel.a@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 25 &bull; 5:45 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Turkey Meatloaf, Mashed Potatoes &amp; Green Beans</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                                        <i class="fa-solid fa-clock"></i> Confirmed
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Notification sent to Rachel!')" type="button">Send Reminder</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 5 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 font-extrabold flex items-center justify-center text-xs">CM</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Carlos Mendez</strong>
+                                            <span class="text-xs text-slate-400">Soccer League Parent</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 678-9012</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> carlos.m@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 27 &bull; 6:15 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Enchilada Bake with Mexican Street Corn</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                                        <i class="fa-solid fa-clock"></i> Confirmed
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Notification sent to Carlos!')" type="button">Send Reminder</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 6 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-900/50 dark:text-brand-300 font-extrabold flex items-center justify-center text-xs">ML</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Marcus Lee</strong>
+                                            <span class="text-xs text-slate-400">Cousin</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 789-0123</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> mlee@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 28 &bull; 6:15 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Teriyaki Chicken Rice Bowl &amp; Steamed Broccoli</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                                        <i class="fa-solid fa-clock"></i> Confirmed
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Notification sent to Marcus!')" type="button">Send Reminder</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 7 -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="active">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300 font-extrabold flex items-center justify-center text-xs">AK</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Aisha Khan</strong>
+                                            <span class="text-xs text-slate-400">Book Club Friend</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 890-1234</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> aisha.k@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-900 dark:text-white block">Sep 30 &bull; 5:30 PM</span>
+                                    <span class="text-slate-500 italic meal-name">Mild Butter Chicken &amp; Fragrant Basmati Rice</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                                        <i class="fa-solid fa-clock"></i> Confirmed
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-xs font-bold" onclick="alert('Notification sent to Aisha!')" type="button">Send Reminder</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 8 (Standby) -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="standby">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300 font-extrabold flex items-center justify-center text-xs">CB</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">Chloe Bennett</strong>
+                                            <span class="text-xs text-slate-400">Community Volunteer</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 901-2345</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> chloe.b@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-500 block">Available for Backup / Groceries</span>
+                                    <span class="text-slate-400 italic">No slot assigned yet</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                                        <i class="fa-solid fa-hand"></i> On Standby
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold" onclick="alert('Assign slot modal opened for Chloe Bennett!')" type="button">Assign Slot</button>
+                                </td>
+                            </tr>
+                            <!-- Volunteer 9 (Standby) -->
+                            <tr class="volunteer-row hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors" data-role="standby">
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-full bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300 font-extrabold flex items-center justify-center text-xs">DP</div>
+                                        <div>
+                                            <strong class="block text-slate-900 dark:text-white volunteer-name">David Patel</strong>
+                                            <span class="text-xs text-slate-400">Neighborhood Watch</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="block font-medium text-slate-700 dark:text-slate-300"><i class="fa-solid fa-phone text-slate-400 mr-1.5"></i> (555) 012-3456</span>
+                                    <span class="block text-slate-500 mt-0.5"><i class="fa-solid fa-envelope text-slate-400 mr-1.5"></i> dpatel@example.com</span>
+                                </td>
+                                <td class="py-3.5 px-4 text-xs">
+                                    <span class="font-bold text-slate-500 block">Available Weekends</span>
+                                    <span class="text-slate-400 italic">No slot assigned yet</span>
+                                </td>
+                                <td class="py-3.5 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">
+                                        <i class="fa-solid fa-hand"></i> On Standby
+                                    </span>
+                                </td>
+                                <td class="py-3.5 px-4 text-right">
+                                    <button class="px-3 py-1.5 rounded-lg bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold" onclick="alert('Assign slot modal opened for David Patel!')" type="button">Assign Slot</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/dashboard.js"></script>
+<script>
+function filterVolunteers(role, btn) {
+    document.querySelectorAll('.volunteer-row').forEach(row => {
+        if (role === 'all' || row.dataset.role === role) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+    btn.parentElement.querySelectorAll('button').forEach(b => {
+        b.className = 'px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-100 font-bold text-xs';
+    });
+    btn.className = 'px-4 py-2 rounded-xl bg-brand-500 text-white font-bold text-xs';
+}
+
+function searchVolunteers() {
+    const val = document.getElementById('volunteerSearch').value.toLowerCase();
+    document.querySelectorAll('.volunteer-row').forEach(row => {
+        const name = row.querySelector('.volunteer-name').textContent.toLowerCase();
+        const meal = row.querySelector('.meal-name') ? row.querySelector('.meal-name').textContent.toLowerCase() : '';
+        if (name.includes(val) || meal.includes(val)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="light" dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Dietary Notes & Preferences — MealTrain Direct" name="description"/>
+    <title>Dietary Notes | Coordinator Dashboard | MealTrain Direct</title>
+    <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{
+        brand:{50:'#fff4f1',100:'#ffe5df',200:'#ffc9bd',300:'#f7a897',500:'#e85d4a',600:'#d94c3b',700:'#b83b2d'},
+        sage:{50:'#effaf7',100:'#d7f2ea',300:'#7cc9b0',500:'#2f9b7b',600:'#257f66',700:'#1e6553'},
+        gold:{50:'#fff9e9',100:'#fff0bd',500:'#f2b84b',600:'#d99a24'}
+        }}}};
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="dashboard-mode minimal-chrome bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<main>
+    <section class="page active dashboard-shell" id="dashboard">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-header-top">
+                <div class="dashboard-brand">
+                    <a aria-label="MealTrain Direct Home" class="dashboard-brand-btn" href="../index.html">
+                        <span class="dashboard-logo"><i class="fa-solid fa-utensils"></i></span>
+                        <span class="dashboard-brand-text">
+                            <span class="brand-name-row"><strong>MealTrain</strong><strong class="brand-accent"> Direct</strong></span>
+                            <small>COORDINATOR HUB</small>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="coordinator-profile desktop-only">
+                <img alt="Coordinator profile avatar" class="coordinator-avatar" src="../images/coordinator-planning.jpg"/>
+                <div>
+                    <strong>Coordinator</strong>
+                    <span>MealTrain team</span>
+                </div>
+            </div>
+
+            <div class="side-label desktop-only">WORKSPACE</div>
+            <div class="dashboard-side-nav">
+                <a class="side-nav-btn" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i><span>Overview</span></a>
+                <a class="side-nav-btn" href="dashboard-schedule.html"><i class="fa-solid fa-calendar-days"></i><span>Meal Schedule</span></a>
+                <a class="side-nav-btn" href="dashboard-volunteers.html"><i class="fa-solid fa-people-group"></i><span>Volunteers</span></a>
+                <a class="side-nav-btn active" href="dashboard-diet.html"><i class="fa-solid fa-notes-medical"></i><span>Dietary Notes</span></a>
+                <a class="side-nav-btn" href="dashboard-reminders.html"><i class="fa-solid fa-bell"></i><span>Reminders</span></a>
+            </div>
+
+            <div class="dashboard-side-bottom">
+                <button class="side-nav-btn" onclick="toggleDashboardTheme()" type="button" title="Toggle Theme"><i class="fa-solid fa-moon"></i><span class="btn-text">Theme</span></button>
+                <button class="side-nav-btn" onclick="toggleDashboardRTL()" type="button" title="Toggle RTL/LTR"><i class="fa-solid fa-right-left"></i><span class="btn-text">RTL</span></button>
+                <button class="side-nav-btn side-logout" onclick="dashboardLogout()" type="button" title="Logout"><i class="fa-solid fa-right-from-bracket"></i><span class="btn-text">Logout</span></button>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <div class="dashboard-topbar">
+                <div>
+                    <span class="dashboard-eyebrow">HEALTH &amp; LOGISTICS</span>
+                    <h1>Dietary Profile &amp; Preferences</h1>
+                    <p>Clear allergen alerts, household portion guidelines, and contactless drop-off instructions.</p>
+                </div>
+                <div class="dashboard-date-card">
+                    <span>RECIPIENT FAMILY</span>
+                    <strong>The Lawson Family</strong>
+                    <small class="text-slate-500">2 Adults &bull; 2 Kids (Ages 4 &amp; 7)</small>
+                </div>
+            </div>
+
+            <!-- CRITICAL ALLERGY ALERT BANNER -->
+            <div class="mb-6 p-4 rounded-2xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-900/60 flex items-start gap-3.5 shadow-sm">
+                <div class="w-10 h-10 rounded-xl bg-red-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-md">
+                    <i class="fa-solid fa-triangle-exclamation text-lg"></i>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <strong class="text-red-900 dark:text-red-300 font-extrabold text-sm sm:text-base">CRITICAL ALLERGY ALERT: STRICT NUT-FREE HOUSEHOLD</strong>
+                        <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-red-100 dark:bg-red-900/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-800">Severe Reaction Risk</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-red-800 dark:text-red-200 mt-1 leading-relaxed">
+                        The 4-year-old child has a life-threatening anaphylactic allergy to <strong>peanuts and tree nuts</strong> (walnuts, almonds, cashews, pecans). Please avoid all nuts, peanut oils, bakery items that may contain traces of nuts, and cross-contamination.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ACTION BAR -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-6 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Status:</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
+                        <i class="fa-solid fa-circle-check"></i> Profile Verified by Coordinator
+                    </span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-100 font-bold text-xs inline-flex items-center gap-2 transition-all" onclick="window.print()" type="button">
+                        <i class="fa-solid fa-print"></i> Print Kitchen Sheet
+                    </button>
+                    <button class="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-extrabold text-xs inline-flex items-center gap-2 shadow-sm transition-all" onclick="alert('Dietary preference edit mode: Update form opened.')" type="button">
+                        <i class="fa-solid fa-pen-to-square"></i> Edit Dietary Info
+                    </button>
+                </div>
+            </div>
+
+            <!-- DETAILED 4-PANEL GRID -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Panel 1: Household Sizing & Packaging -->
+                <div class="dashboard-panel bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-sage-100 dark:bg-sage-900/40 text-sage-600 dark:text-sage-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-extrabold text-slate-900 dark:text-white">Household Size &amp; Portions</h2>
+                            <p class="text-xs text-slate-500">Portion guidelines and packaging preferences</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-sage-500 mt-1"></i>
+                            <div><strong>Household Members:</strong> 4 total (Mom, Dad, 7-year-old girl, 4-year-old boy).</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-sage-500 mt-1"></i>
+                            <div><strong>Portion Estimate:</strong> 4 standard adult portions or 1 large 9x13 family casserole.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-sage-500 mt-1"></i>
+                            <div><strong>Packaging:</strong> Disposable aluminum trays or labeled containers you do not need returned.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-check text-sage-500 mt-1"></i>
+                            <div><strong>Reheating:</strong> Simple oven or microwave reheating instructions written on top with masking tape are very helpful!</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Panel 2: Favorite Meals & Cravings -->
+                <div class="dashboard-panel bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gold-50 dark:bg-amber-900/40 text-gold-600 dark:text-amber-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-heart"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-extrabold text-slate-900 dark:text-white">Favorite Family Comfort Foods</h2>
+                            <p class="text-xs text-slate-500">Dishes the whole family particularly loves</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-drumstick-bite text-brand-500"></i> Roast Chicken &amp; Veggies
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bowl-food text-sage-500"></i> Mild Stews &amp; Soups
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-bread-slice text-amber-500"></i> Turkey Meatloaf &amp; Mash
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-wheat-awn text-emerald-500"></i> Pasta Primavera (Nut-free)
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-apple-whole text-red-500"></i> Fresh Cut Fruit Baskets
+                        </span>
+                        <span class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <i class="fa-solid fa-cookie text-gold-600"></i> Oatmeal Raisin Cookies
+                        </span>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 italic">
+                        "The kids love mild flavors and tender roasted veggies. Bread rolls or rice are always huge hits!"
+                    </p>
+                </div>
+
+                <!-- Panel 3: Dislikes & Mild Restrictions -->
+                <div class="dashboard-panel bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-ban"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-extrabold text-slate-900 dark:text-white">Dislikes &amp; Sensitivities</h2>
+                            <p class="text-xs text-slate-500">Ingredients to minimize or omit</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-xmark text-brand-500 mt-1"></i>
+                            <div><strong>Mild Lactose Sensitivity (Mom):</strong> Small amounts of baked cheese are fine, but please avoid heavy cream sauces or whole cow's milk.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-xmark text-brand-500 mt-1"></i>
+                            <div><strong>No Super Spicy Food:</strong> Mild mild heat only; no hot chilies, jalapeños, or sriracha (kids cannot eat spicy food).</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-xmark text-brand-500 mt-1"></i>
+                            <div><strong>Dislikes:</strong> Raw red onions and heavy cilantro. Cooked onions in sauces are totally fine.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Panel 4: Drop-Off Protocol & Porch Logistics -->
+                <div class="dashboard-panel bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-truck-ramp-box"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-extrabold text-slate-900 dark:text-white">Delivery Protocol &amp; Porch Logistics</h2>
+                            <p class="text-xs text-slate-500">Contactless drop-off window and instructions</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-clock text-blue-500 mt-1"></i>
+                            <div><strong>Drop-Off Time:</strong> Between <strong>5:30 PM and 6:30 PM</strong>.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-box text-blue-500 mt-1"></i>
+                            <div><strong>Porch Cooler Box:</strong> A large white Coleman cooler is on the covered front porch. Place hot or chilled dishes inside.</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-bell-concierge text-blue-500 mt-1"></i>
+                            <div><strong>Doorbell:</strong> Ring doorbell once, then leave. No need to wait for someone to open the door (mom is nursing / resting).</div>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-comment-sms text-blue-500 mt-1"></i>
+                            <div><strong>Text Confirmation:</strong> Send a quick text to Sarah at (555) 123-4567: <em>"Meal is on the porch! Enjoy!"</em></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

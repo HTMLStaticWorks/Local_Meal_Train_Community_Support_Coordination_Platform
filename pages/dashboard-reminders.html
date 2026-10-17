@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html class="light" dir="ltr" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="Reminders & Notifications — MealTrain Direct" name="description"/>
+    <title>Reminders | Coordinator Dashboard | MealTrain Direct</title>
+    <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config={darkMode:'class',theme:{extend:{colors:{
+        brand:{50:'#fff4f1',100:'#ffe5df',200:'#ffc9bd',300:'#f7a897',500:'#e85d4a',600:'#d94c3b',700:'#b83b2d'},
+        sage:{50:'#effaf7',100:'#d7f2ea',300:'#7cc9b0',500:'#2f9b7b',600:'#257f66',700:'#1e6553'},
+        gold:{50:'#fff9e9',100:'#fff0bd',500:'#f2b84b',600:'#d99a24'}
+        }}}};
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+    <link href="../css/styles.css" rel="stylesheet"/>
+</head>
+<body class="dashboard-mode minimal-chrome bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+<main>
+    <section class="page active dashboard-shell" id="dashboard">
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-header-top">
+                <div class="dashboard-brand">
+                    <a aria-label="MealTrain Direct Home" class="dashboard-brand-btn" href="../index.html">
+                        <span class="dashboard-logo"><i class="fa-solid fa-utensils"></i></span>
+                        <span class="dashboard-brand-text">
+                            <span class="brand-name-row"><strong>MealTrain</strong><strong class="brand-accent"> Direct</strong></span>
+                            <small>COORDINATOR HUB</small>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="coordinator-profile desktop-only">
+                <img alt="Coordinator profile avatar" class="coordinator-avatar" src="../images/coordinator-planning.jpg"/>
+                <div>
+                    <strong>Coordinator</strong>
+                    <span>MealTrain team</span>
+                </div>
+            </div>
+
+            <div class="side-label desktop-only">WORKSPACE</div>
+            <div class="dashboard-side-nav">
+                <a class="side-nav-btn" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i><span>Overview</span></a>
+                <a class="side-nav-btn" href="dashboard-schedule.html"><i class="fa-solid fa-calendar-days"></i><span>Meal Schedule</span></a>
+                <a class="side-nav-btn" href="dashboard-volunteers.html"><i class="fa-solid fa-people-group"></i><span>Volunteers</span></a>
+                <a class="side-nav-btn" href="dashboard-diet.html"><i class="fa-solid fa-notes-medical"></i><span>Dietary Notes</span></a>
+                <a class="side-nav-btn active" href="dashboard-reminders.html"><i class="fa-solid fa-bell"></i><span>Reminders</span></a>
+            </div>
+
+            <div class="dashboard-side-bottom">
+                <button class="side-nav-btn" onclick="toggleDashboardTheme()" type="button" title="Toggle Theme"><i class="fa-solid fa-moon"></i><span class="btn-text">Theme</span></button>
+                <button class="side-nav-btn" onclick="toggleDashboardRTL()" type="button" title="Toggle RTL/LTR"><i class="fa-solid fa-right-left"></i><span class="btn-text">RTL</span></button>
+                <button class="side-nav-btn side-logout" onclick="dashboardLogout()" type="button" title="Logout"><i class="fa-solid fa-right-from-bracket"></i><span class="btn-text">Logout</span></button>
+            </div>
+        </aside>
+
+        <div class="dashboard-main">
+            <div class="dashboard-topbar">
+                <div>
+                    <span class="dashboard-eyebrow">AUTOMATION ENGINE</span>
+                    <h1>Automated Reminders &amp; Alerts</h1>
+                    <p>Keep volunteers informed with automated SMS and email notifications before their delivery.</p>
+                </div>
+                <div class="dashboard-date-card">
+                    <span>DISPATCH ENGINE</span>
+                    <strong class="text-emerald-500">Active (100% Reliable)</strong>
+                    <small class="text-slate-500">Next trigger in 14 hours</small>
+                </div>
+            </div>
+
+            <!-- AUTOMATION FLOW CARDS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 flex items-center justify-center text-sm font-bold">1</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">Active</span>
+                    </div>
+                    <strong class="text-sm font-extrabold text-slate-900 dark:text-white block">48-Hour Email Notice</strong>
+                    <p class="text-xs text-slate-500 mt-1">Calendar invite, dietary reminders, and recipe ideas.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="w-8 h-8 rounded-lg bg-sage-100 dark:bg-sage-900/40 text-sage-600 dark:text-sage-300 flex items-center justify-center text-sm font-bold">2</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">Active</span>
+                    </div>
+                    <strong class="text-sm font-extrabold text-slate-900 dark:text-white block">24-Hour SMS Text</strong>
+                    <p class="text-xs text-slate-500 mt-1">Drop-off window, address map pin, and allergy check.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-300 flex items-center justify-center text-sm font-bold">3</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">Active</span>
+                    </div>
+                    <strong class="text-sm font-extrabold text-slate-900 dark:text-white block">Day-Of Porch Ping</strong>
+                    <p class="text-xs text-slate-500 mt-1">Cooler box location reminder &amp; 1-click confirmation.</p>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 flex items-center justify-center text-sm font-bold">4</span>
+                        <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-full">Active</span>
+                    </div>
+                    <strong class="text-sm font-extrabold text-slate-900 dark:text-white block">Post-Delivery Thanks</strong>
+                    <p class="text-xs text-slate-500 mt-1">Automated recipient gratitude note to the volunteer.</p>
+                </div>
+            </div>
+
+            <!-- UPCOMING REMINDER DISPATCH QUEUE -->
+            <section class="dashboard-section dashboard-panel mb-6">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Upcoming Scheduled Reminders (Next 7 Days)</h2>
+                        <p>Automated queue synced with Lawson family calendar dates</p>
+                    </div>
+                    <button class="px-3.5 py-1.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs inline-flex items-center gap-2 transition-all" onclick="alert('Sent test SMS & email reminder to your coordinator email!')" type="button">
+                        <i class="fa-solid fa-paper-plane"></i> Send Test Alert
+                    </button>
+                </div>
+
+                <div class="space-y-3">
+                    <!-- Queue Item 1 -->
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-brand-100 text-brand-600 dark:bg-brand-900/40 dark:text-brand-300 flex items-center justify-center font-bold text-xs">
+                                <i class="fa-solid fa-comment-sms"></i>
+                            </span>
+                            <div>
+                                <strong class="text-xs sm:text-sm text-slate-900 dark:text-white block">Carlos Mendez (Sep 27 Delivery)</strong>
+                                <span class="text-xs text-slate-500">24h SMS Reminder &bull; Scheduled for <strong>Sep 26 at 9:00 AM</strong></span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">Queued</span>
+                            <button class="px-3 py-1 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-700" onclick="alert('Preview Carlos reminder: Hello Carlos! Thank you for delivering dinner tomorrow (Sep 27, 6:15 PM). Reminder: Nut-free household. Leave in porch cooler.')" type="button">Preview</button>
+                            <button class="px-3 py-1 text-xs font-bold rounded-lg bg-brand-500 text-white hover:bg-brand-600" onclick="alert('Dispatched immediately!')" type="button">Send Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Queue Item 2 -->
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-300 flex items-center justify-center font-bold text-xs">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                            <div>
+                                <strong class="text-xs sm:text-sm text-slate-900 dark:text-white block">Marcus Lee (Sep 28 Delivery)</strong>
+                                <span class="text-xs text-slate-500">48h Email Guide &bull; Scheduled for <strong>Sep 26 at 2:00 PM</strong></span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300">Queued</span>
+                            <button class="px-3 py-1 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-700" onclick="alert('Preview Marcus email: Calendar invite with recipe tips and delivery coordinates.')" type="button">Preview</button>
+                            <button class="px-3 py-1 text-xs font-bold rounded-lg bg-brand-500 text-white hover:bg-brand-600" onclick="alert('Dispatched immediately!')" type="button">Send Now</button>
+                        </div>
+                    </div>
+
+                    <!-- Queue Item 3 -->
+                    <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-sage-100 text-sage-600 dark:bg-sage-900/40 dark:text-sage-300 flex items-center justify-center font-bold text-xs">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </span>
+                            <div>
+                                <strong class="text-xs sm:text-sm text-slate-900 dark:text-white block">Standby Volunteer Broadcast (Sep 29 Slot)</strong>
+                                <span class="text-xs text-slate-500">Open slot notification to 6 standby helpers &bull; Auto-triggers if unfilled by <strong>Sep 27</strong></span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300">Auto-Armed</span>
+                            <button class="px-3 py-1 text-xs font-bold rounded-lg border border-slate-300 dark:border-slate-600 hover:bg-slate-200 dark:hover:bg-slate-700" onclick="alert('Standby broadcast preview: We have an open meal slot for Sep 29! Click to claim.')" type="button">Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RECENT DISPATCH LOGS -->
+            <section class="dashboard-section dashboard-panel">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Recent Dispatch &amp; Delivery Confirmation Logs</h2>
+                        <p>Complete historical audit log of alerts delivered to date</p>
+                    </div>
+                    <span class="panel-status">All 12 Notifications Delivered</span>
+                </div>
+
+                <div class="divide-y divide-slate-100 dark:divide-slate-800 text-xs sm:text-sm">
+                    <div class="py-3 flex items-center justify-between flex-wrap gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                            <span class="font-bold text-slate-900 dark:text-white">Sep 24 &bull; 9:00 AM</span>
+                            <span class="text-slate-500">SMS reminder sent to <strong>Daniel Brooks</strong> for dinner drop-off.</span>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/50 dark:text-emerald-300 px-2 py-0.5 rounded">Confirmed by helper</span>
+                    </div>
+                    <div class="py-3 flex items-center justify-between flex-wrap gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                            <span class="font-bold text-slate-900 dark:text-white">Sep 23 &bull; 9:00 AM</span>
+                            <span class="text-slate-500">SMS reminder sent to <strong>Jonathan Miller</strong> for dinner drop-off.</span>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/50 dark:text-emerald-300 px-2 py-0.5 rounded">Delivered &amp; Verified</span>
+                    </div>
+                    <div class="py-3 flex items-center justify-between flex-wrap gap-2">
+                        <div class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                            <span class="font-bold text-slate-900 dark:text-white">Sep 22 &bull; 9:00 AM</span>
+                            <span class="text-slate-500">SMS reminder sent to <strong>Maya Chen</strong> for dinner drop-off.</span>
+                        </div>
+                        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-950/50 dark:text-emerald-300 px-2 py-0.5 rounded">Delivered &amp; Verified</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/dashboard.js"></script>
+</body>
+</html>
